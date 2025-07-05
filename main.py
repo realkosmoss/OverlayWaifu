@@ -3,21 +3,26 @@ import random
 import time
 from PIL import Image, ImageDraw, ImageFont
 import hashlib
+import os
 
 class WaifuOverlay:
     def __init__(self):
         self.main_path = "S:/AI/OverlayWife"
         title = "Waifu"
-        pm.overlay_init(target=title, title=title, fps=30)
+        pm.overlay_init(target=title, title=title, fps=10)
         self.color = pm.get_color("white")
         self.font = self.main_path + "/fonts/YellowSun.otf"
-        self.text_cache = {}
+        temp_folder = self.main_path + "/temp"
+        self.text_cache = {
+            filename[len("text_"):-len(".png")]: pm.load_texture(os.path.join(temp_folder, filename))
+            for filename in os.listdir(temp_folder) if filename.endswith(".png")
+        }
 
         self.choices = [
             "alarmed.png", "chilling1.png", "chilling2.png", "chilling3.png",
             "confused.png", "eating.png", "happy_jump.png", "kisses.png",
             "loved.png", "nice.png", "please.png", "reading_book.png",
-            "singing.png", "what.png", "writing_down.png"
+            "singing.png", "what.png", "writing_down.png", "Uhh.png"
         ]
         self.textures = [pm.load_texture(self.main_path + f"/images/{choice}") for choice in self.choices]
 
@@ -37,7 +42,7 @@ class WaifuOverlay:
             "Feeling happy and jumpy!", "Sending kisses your way.",
             "You are loved.", "That’s nice!", "Please be kind.",
             "Reading a good book.", "Singing my heart out.",
-            "What’s up?", "Writing down thoughts."
+            "What’s up?", "Writing down thoughts.", "Uhh... what just happened?"
         ]
 
     def text_to_texture(self, text, font_path, font_size, color):
