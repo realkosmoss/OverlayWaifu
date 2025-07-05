@@ -33,16 +33,27 @@ class WaifuOverlay:
         self.text_scale = 100
 
         self.current_index = 0
+        self.current_index2 = 0
         self.last_switch_time = time.time()
         self.switch_interval = 7
 
         self.messages = [
-            "I'm feeling alarmed!", "Just chilling out...", "So relaxed...",
-            "Still chilling...", "A bit confused here.", "Mmm, eating time!",
-            "Feeling happy and jumpy!", "Sending kisses your way.",
-            "You are loved.", "That’s nice!", "Please be kind.",
-            "Reading a good book.", "Singing my heart out.",
-            "What’s up?", "Writing down thoughts.", "Uhh... what just happened?"
+            ["I'm feeling alarmed!", "Whoa, what's happening?!", "Alert mode activated!"],
+            ["Just chilling out...", "So relaxed...", "Taking it easy."],
+            ["So relaxed...", "Feeling calm and peaceful.", "At ease with everything."],
+            ["Still chilling...", "Hanging loose.", "Nothing to worry about."],
+            ["A bit confused here.", "Wait, what just happened?", "Trying to figure this out."],
+            ["Mmm, eating time!", "Snack attack incoming!", "Deliciousness overload!"],
+            ["Feeling happy and jumpy!", "Can’t stop smiling!", "Energy’s through the roof!"],
+            ["Sending kisses your way.", "Blowing you some love!", "Catch these kisses!"],
+            ["You are loved.", "Remember, you matter.", "You’re appreciated."],
+            ["That’s nice!", "Sounds great!", "Love to hear that!"],
+            ["Please be kind.", "Kindness goes a long way.", "Spread some love today."],
+            ["Reading a good book.", "Getting lost in a story.", "Books are magic!"],
+            ["Singing my heart out.", "Music fills my soul.", "La la la..."],
+            ["What’s up?", "Hey there!", "What’s happening?"],
+            ["Writing down thoughts.", "Journaling my mind.", "Putting pen to paper."],
+            ["Uhh... what just happened?", "Wait, rewind!", "Did I miss something?"]
         ]
 
     def text_to_texture(self, text, font_path, font_size, color):
@@ -75,12 +86,13 @@ class WaifuOverlay:
         now = time.time()
         if now - self.last_switch_time > self.switch_interval:
             self.current_index = random.randint(0, len(self.textures) - 1)
+            self.current_index2 = random.randint(0, len(self.messages[self.current_index]) - 1)
             self.last_switch_time = now
 
         texture = self.textures[self.current_index]
         self.DrawAnimeGirl(texture)
 
-        text = self.messages[self.current_index]
+        text = self.messages[self.current_index][self.current_index2]
         text_texture = self.text_to_texture(text, self.font, self.text_scale, (255, 182, 193))
         pm.draw_texture(text_texture, self.posX - 20, self.posY - 35, self.color, self.rotation, 0.3)
 
