@@ -7,7 +7,7 @@ import os
 
 class WaifuOverlay:
     def __init__(self):
-        self.main_path = "S:/AI/OverlayWife"
+        self.main_path = "S:/AI/OverlayWife" # (It was gonna use ai, but fuck that)
         title = "Waifu"
         pm.overlay_init(target=title, title=title, fps=10)
         self.color = pm.get_color("white")
@@ -22,7 +22,9 @@ class WaifuOverlay:
             "alarmed.png", "chilling1.png", "chilling2.png", "chilling3.png",
             "confused.png", "eating.png", "happy_jump.png", "kisses.png",
             "loved.png", "nice.png", "please.png", "reading_book.png",
-            "singing.png", "what.png", "writing_down.png", "Uhh.png"
+            "singing.png", "what.png", "writing_down.png", "Uhh.png",
+            "Unsure.png", "Suspicious.png", "Frozen_in_ice.png", "Eating_popcorn.png",
+            "Sleeping.png"
         ]
         self.textures = [pm.load_texture(self.main_path + f"/images/{choice}") for choice in self.choices]
 
@@ -53,7 +55,14 @@ class WaifuOverlay:
             ["Singing my heart out.", "Music fills my soul.", "La la la..."],
             ["What’s up?", "Hey there!", "What’s happening?"],
             ["Writing down thoughts.", "Journaling my mind.", "Putting pen to paper."],
-            ["Uhh... what just happened?", "Wait, rewind!", "Did I miss something?"]
+            ["Uhh... what just happened?", "Wait, rewind!", "Did I miss something?"],
+            ["I'm not sure about this...", "Hmm... what should I do?", "Feeling a little uncertain right now."],
+            ["Hmm... I don't trust this.", "Are you sure about that?", "Something feels off..."],
+            ["So cold... I can't move.", "Frozen solid... send help.", "Why is it always winter here?"],
+            ["Just watching it all unfold...", "This is getting interesting.", "Got my popcorn ready!"],
+            ["This is important!", "Can anybody hear me?", "I'm making an announcement!"],
+            ["No means no.", "That's a hard no.", "Not doing that."],
+            ["Time for a nap...", "Zzz... so cozy.", "Don’t wake me up!"],
         ]
 
     def text_to_texture(self, text, font_path, font_size, color):
@@ -74,7 +83,7 @@ class WaifuOverlay:
         file_path = self.main_path + f"/temp/text_{hashed_key}.png"
         img.save(file_path)
 
-        texture = pm.load_texture(file_path)
+        texture = pm.load_texture(file_path) # Yes i know there is "load_texture_bytes" shit does not work.
         self.text_cache[key] = texture
         return texture
 
