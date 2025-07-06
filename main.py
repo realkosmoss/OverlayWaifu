@@ -24,7 +24,7 @@ class WaifuOverlay:
             "loved.png", "nice.png", "please.png", "reading_book.png",
             "singing.png", "what.png", "writing_down.png", "Uhh.png",
             "Unsure.png", "Suspicious.png", "Frozen_in_ice.png", "Eating_popcorn.png",
-            "Sleeping.png"
+            "Megaphone.png", "No.png", "Sleeping.png"
         ]
         self.textures = [pm.load_texture(self.main_path + f"/images/{choice}") for choice in self.choices]
 
@@ -40,29 +40,29 @@ class WaifuOverlay:
         self.switch_interval = 7
 
         self.messages = [
-            ["I'm feeling alarmed!", "Whoa, what's happening?!", "Alert mode activated!"],
-            ["Just chilling out...", "So relaxed...", "Taking it easy."],
-            ["So relaxed...", "Feeling calm and peaceful.", "At ease with everything."],
-            ["Still chilling...", "Hanging loose.", "Nothing to worry about."],
-            ["A bit confused here.", "Wait, what just happened?", "Trying to figure this out."],
-            ["Mmm, eating time!", "Snack attack incoming!", "Deliciousness overload!"],
-            ["Feeling happy and jumpy!", "Can’t stop smiling!", "Energy’s through the roof!"],
-            ["Sending kisses your way.", "Blowing you some love!", "Catch these kisses!"],
-            ["You are loved.", "Remember, you matter.", "You’re appreciated."],
-            ["That’s nice!", "Sounds great!", "Love to hear that!"],
-            ["Please be kind.", "Kindness goes a long way.", "Spread some love today."],
-            ["Reading a good book.", "Getting lost in a story.", "Books are magic!"],
-            ["Singing my heart out.", "Music fills my soul.", "La la la..."],
-            ["What’s up?", "Hey there!", "What’s happening?"],
-            ["Writing down thoughts.", "Journaling my mind.", "Putting pen to paper."],
-            ["Uhh... what just happened?", "Wait, rewind!", "Did I miss something?"],
-            ["I'm not sure about this...", "Hmm... what should I do?", "Feeling a little uncertain right now."],
-            ["Hmm... I don't trust this.", "Are you sure about that?", "Something feels off..."],
-            ["So cold... I can't move.", "Frozen solid... send help.", "Why is it always winter here?"],
-            ["Just watching it all unfold...", "This is getting interesting.", "Got my popcorn ready!"],
-            ["This is important!", "Can anybody hear me?", "I'm making an announcement!"],
-            ["No means no.", "That's a hard no.", "Not doing that."],
-            ["Time for a nap...", "Zzz... so cozy.", "Don’t wake me up!"],
+            ["I'm feeling alarmed!", "Whoa, what's happening?!", "Alert mode activated!"],                          # alarmed.png
+            ["Just chilling out...", "So relaxed...", "Taking it easy."],                                           # chilling1.png
+            ["So relaxed...", "Feeling calm and peaceful.", "At ease with everything."],                            # chilling2.png
+            ["Still chilling...", "Hanging loose.", "Nothing to worry about."],                                     # chilling3.png
+            ["A bit confused here.", "Wait, what just happened?", "Trying to figure this out."],                    # confused.png
+            ["Mmm, eating time!", "Snack attack incoming!", "Deliciousness overload!"],                             # eating.png
+            ["Feeling happy and jumpy!", "Can’t stop smiling!", "Energy’s through the roof!"],                      # happy_jump.png
+            ["Sending kisses your way.", "Blowing you some love!", "Catch these kisses!"],                          # kisses.png
+            ["You are loved.", "Remember, you matter.", "You’re appreciated."],                                     # loved.png
+            ["That’s nice!", "Sounds great!", "Love to hear that!"],                                                # nice.png
+            ["Please be kind.", "Kindness goes a long way.", "Spread some love today."],                            # please.png
+            ["Reading a good book.", "Getting lost in a story.", "Books are magic!"],                               # reading_book.png
+            ["Singing my heart out.", "Music fills my soul.", "La la la..."],                                       # singing.png
+            ["What’s up?", "Hey there!", "What’s happening?"],                                                      # what.png
+            ["Writing down thoughts.", "Journaling my mind.", "Putting pen to paper."],                             # writing_down.png
+            ["Uhh... what just happened?", "Wait, rewind!", "Did I miss something?"],                               # Uhh.png
+            ["I'm not sure about this...", "Hmm... what should I do?", "Feeling a little uncertain right now."],    # Unsure.png
+            ["Hmm... I don't trust this.", "Are you sure about that?", "Something feels off..."],                   # Suspicious.png
+            ["So cold... I can't move.", "Frozen solid... send help.", "Why is it always winter here?"],            # Frozen_in_ice.png
+            ["Just watching it all unfold...", "This is getting interesting.", "Got my popcorn ready!"],            # Eating_popcorn.png
+            ["This is important!", "Can anybody hear me?", "I'm making an announcement!"],                          # Megaphone.png
+            ["No means no.", "That's a hard no.", "Not doing that."],                                               # No.png
+            ["Time for a nap...", "Zzz... so cozy.", "Don’t wake me up!"],                                          # Sleeping.png
         ]
 
     def text_to_texture(self, text, font_path, font_size, color):
